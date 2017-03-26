@@ -25,16 +25,17 @@
     <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="/" id="logo-container" class="brand-logo">College Enquiry AI Chatbot</a>
+            <a href="/" id="logo-container" class="brand-logo">College Enquiry Chatbot</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="chat">Chat</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="signin">Login</a></li>
                     <li><a href="register">Register</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                  <li><a href="chat">Chat</a></li>
-                    <li><a href="/signin">Login</a></li>
-                    <li><a href="/register">Register</a></li>             \                </ul>
+                  <li><a href="/">Home</a></li>
+                    <li><a href="signin">Login</a></li>
+                    <li><a href="register">Register</a></li>
+                </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
         </div>
@@ -60,9 +61,12 @@
     <div class="container">
         <div class="row">
             <div  class="col s12">
-                <h2 class="center header text_h2"> Register  <span class="span_h2"> Here  </span> </h2>
+                <h3 class="center header text_h3"> User  <span class="span_h3"> Registration  </span> </h3>
             </div>
         </div>
+            {% if error %}
+                  <p><strong>Error:</strong> {{ error }}
+            {% endif %}
             <form class="login-form" action="register" method="POST" name="Register">
             {{ form.hidden_tag() }}
 
@@ -120,8 +124,5 @@
     ================================================ -->
     <script src="static/min/plugin-min.js"></script>
     <script src="static/min/custom-min.js"></script>
-
-
 </body>
-
 </html>

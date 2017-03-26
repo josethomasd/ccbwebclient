@@ -6,7 +6,7 @@ from flask import jsonify
 
 from flask_socketio import SocketIO,emit
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import current_user, login_user, login_required, LoginManager
+from flask_login import current_user, login_user, login_required, LoginManager,logout_user
 
 from werkzeug.security import generate_password_hash,check_password_hash
 
@@ -14,15 +14,15 @@ from flask_heroku import Heroku
 
 from forms import Login,Register
 
-
 app = Flask(__name__)
 app.config.from_object('config')
 
 socketio = SocketIO(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://qeschskqymhhuy:e92ff18d8fad3e20c31febcd647d8c4aad0cc48de7d1c5a2a957ecee4919b772@ec2-174-129-223-193.compute-1.amazonaws.com:5432/d814036na56rtq'
-heroku = Heroku(app)
 db = SQLAlchemy(app)
+heroku = Heroku(app)
+
 
 login_manager= LoginManager()
 login_manager.session_protection = 'strong'
@@ -83,6 +83,7 @@ def index():
 
 @app.route("/signin",methods=['GET','POST'])
 def signin():
+    error = None
     form = Login()
     if current_user.is_authenticated:
         return redirect(url_for('chat'))
@@ -95,13 +96,14 @@ def signin():
             db.session.add(user)
             db.session.commit()
             login_user(user)
-            return redirect(request.args.get('next') or url_for('chat'))
-        flash('Invalid username or password.')
-    return render_template('signin.html',title='Login',form=form)
+            return redirect(url_for('chat'))
+        error = 'Invalid username or password. Please try again!'
+    return render_template('signin.html',title='Login',form=form,error=error)
 
 @app.route("/register",methods=['GET','POST'])
 def register():
     form = Register()
+    error = None
     if form.validate_on_submit():
         email = form.username.data
         username = form.username.data
@@ -111,7 +113,9 @@ def register():
             reg = User(email,username,password,mobile)
             db.session.add(reg)
             db.session.commit()
-    return render_template('register.html',title='Register',form=form)
+            return redirect(url_for('signin'))
+        error = 'User with the same email already exists!'
+    return render_template('register.html',title='Register',form=form,error=error)
 
 @app.route("/chat",methods=['GET'])
 def chat():
@@ -146,6 +150,15 @@ def test_connect():
 def test_disconnect():
     print('Client disconnected')
 
+@app.route('/signout')
+def logout():
+    user1 = current_user
+    user1.authenticated = False
+    db.session.add(user1)
+    db.session.commit()
+    logout_user()
+    flash('You have been logged out.')
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 5555))
