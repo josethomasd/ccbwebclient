@@ -20,7 +20,7 @@ app.config.from_object('config')
 
 socketio = SocketIO(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/ccbot'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/ccbot'
 heroku = Heroku(app)
 db = SQLAlchemy(app)
 
