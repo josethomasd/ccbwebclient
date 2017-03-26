@@ -10,7 +10,7 @@ from flask_login import current_user, login_user, login_required, LoginManager
 
 from werkzeug.security import generate_password_hash,check_password_hash
 
-from flask.ext.heroku import Heroku
+from flask_heroku import Heroku
 
 from forms import Login,Register
 
