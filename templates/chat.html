@@ -13,13 +13,13 @@
     <link href="static/min/custom-min.css" type="text/css" rel="stylesheet" >
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     <script type="text/javascript" charset="utf-8">
 
 
     $(document).ready(function(){
-        var socket = io.connect('https://' + document.domain + ':' + location.port + '/test');
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
         socket.on('my response', function(msg) {
             $('#log').append('<p>Bot: ' + msg.data + '</p>');
         });

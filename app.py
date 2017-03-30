@@ -127,7 +127,7 @@ def test_message(message):
     print message['data']
 
     message_text = message['data']
-    server_url = "https://ccbserver.herokuapp.com/api/msg/"
+    server_url = "http://ccbserver.herokuapp.com/api/msg/"
 
     final_url = server_url+message_text
     resp = requests.get(final_url)
