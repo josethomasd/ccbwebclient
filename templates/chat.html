@@ -16,11 +16,13 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
     <script type="text/javascript" charset="utf-8">
+    var myVar = "global";
     $(document).ready(function(){
     	namespace = '/test'; 
         var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
         socket.on('my response', function(msg) {
             $('#log').append('<p>Bot: ' + msg.data + '</p>');
+            myVar=msg.data
         });
         $('form#emit').submit(function(event) {
             socket.emit('my event', {data: $('#emit_data').val()});
@@ -79,6 +81,14 @@
                         <input type="text" autocomplete="false" name="hidden" class="form-control" placeholder="Enter Message" id="emit_data" >
                         <span class="input-group-btn">
                             <input button class="btn btn-info" type="submit" value="Send" ></button>
+                            <input button class="btn btn-info" type="reset" value="Speak" onclick="play()"></button>
+                            <script type="text/javascript">
+                            function play()
+                            {
+                                var msg = new SpeechSynthesisUtterance(myVar);
+                                window.speechSynthesis.speak(msg);
+                            }
+                            </script>
                         </span>
                     </div>
             </div>
