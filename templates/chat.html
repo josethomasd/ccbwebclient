@@ -8,16 +8,14 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
     <title>Chat | College Enquiry AI Chatbot</title>
+
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="static/min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="static/min/custom-min.css" type="text/css" rel="stylesheet" >
 
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
     <script type="text/javascript" charset="utf-8">
-
-
     $(document).ready(function(){
         var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
         socket.on('my response', function(msg) {
@@ -30,16 +28,13 @@
         });
     });
     </script>
-
 </head>
 
 <body id="top" class="scrollspy">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-</div>
-
-
+	
 <!--Navigation-->
  <div class="navbar-fixed">
     <nav id="nav_f" class="default_color" role="navigation">
@@ -48,12 +43,14 @@
             <a href="/" id="logo-container" class="brand-logo">College Enquiry Chatbot</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="chat">Chat</a></li>
-                    <li><a href="signout">Sign out</a></li>                </ul>
+                    <li><a href="signout">Sign out</a></li>                
+                </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="chat">Chat</a></li>
-                    <li><a href="signout">Sign out</a></li>             \                </ul>
+                    <li><a href="signout">Sign out</a></li>
+                </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-            </div>
+           </div>
         </div>
     </nav>
 </div>
@@ -64,22 +61,17 @@
             <div  class="col s12">
                 <h3 class="center header text_h3"> Chat <span class="span_h3"> Here  </span> </h3>
             </div>
-
             <div class="panel-body">
-       <ul class="media-list">
-
-                    <li class="media">
-
-                        <div class="media-body">
-
-                            <div class="media">
-                                <div class="media-body" >
-                                <div id="log"></div>
-                                </div>
-                            </div>
-                        </div>
-        </ul> 
-
+		       	<ul class="media-list">
+		            <li class="media">
+		            <div class="media-body">
+		                <div class="media">
+		                    <div class="media-body" >
+		                    <div id="log"></div>
+		                    </div>
+		                </div>
+		            </div>
+		        </ul> 
             </div>
             <div class="panel-footer">
                 <form id="emit" method="POST" action='#' class="input-group" autocomplete="off">
