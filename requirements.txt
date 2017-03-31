@@ -17,4 +17,5 @@ SQLAlchemy==1.0.12
 sqlalchemy-migrate==0.10.0
 wsgiref==0.1.2
 WTForms==2.1
+eventlet
 
