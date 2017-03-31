@@ -13,8 +13,8 @@
     <link href="static/min/custom-min.css" type="text/css" rel="stylesheet" >
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
     <script type="text/javascript" charset="utf-8">
 
 
@@ -98,10 +98,10 @@
         </ul> -->
             </div>
             <div class="panel-footer">
-                <form id="emit" method="POST" action='#' class="input-group">
-                        <input type="text" class="form-control" placeholder="Enter Message" name="emit_data" id="emit_data">
+                <form id="emit" method="POST" action='#' class="input-group" autocomplete="off">
+                        <input type="text" autocomplete="false" name="hidden" class="form-control" placeholder="Enter Message" id="emit_data" >
                         <span class="input-group-btn">
-                            <input button class="btn btn-info" type="button" value="Send"></button>
+                            <input button class="btn btn-info" type="submit" value="Send" ></button>
                         </span>
                     </div>
             </div>
