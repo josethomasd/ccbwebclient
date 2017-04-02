@@ -12,7 +12,6 @@ from werkzeug.security import generate_password_hash,check_password_hash
 
 from flask_heroku import Heroku
 
-
 from forms import Login,Register
 
 app = Flask(__name__)
@@ -79,7 +78,10 @@ class User(db.Model):
 
 @app.route("/")
 def index():
-	return render_template("index.html",title="Home")
+    log = 0
+    if current_user.is_authenticated:
+        log = 1
+    return render_template("index.html",title="Home",log=log)
 
 @app.route("/signin",methods=['GET','POST'])
 def signin():
@@ -102,6 +104,8 @@ def signin():
 
 @app.route("/register",methods=['GET','POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('chat'))
     form = Register()
     error = None
     if form.validate_on_submit():
@@ -119,6 +123,11 @@ def register():
 
 @app.route("/chat",methods=['GET'])
 def chat():
+    login_check = 0
+    if current_user.is_authenticated:
+        login_check = 1
+    if login_check == 0:
+        return redirect(url_for('signin'))
     return render_template("chat.html")
 
 @socketio.on('my event', namespace='/test')

@@ -14,114 +14,92 @@
     <link href="static/min/custom-min.css" type="text/css" rel="stylesheet" >
 
     <style type="text/css">
-     .mobileShow { display: none;}
-     /* Smartphone Portrait and Landscape */
-     @media only screen
-     and (min-device-width : 320px)
-     and (max-device-width : 480px){ .mobileShow { display: inline;}}
+      .mobileShow { display: none;}
+      /* Smartphone Portrait and Landscape */
+      @media only screen
+      and (min-device-width : 320px)
+      and (max-device-width : 480px){ .mobileShow { display: inline;}}
 
-     .mobileHide { display: inline;}
-   /* Smartphone Portrait and Landscape */
-     @media only screen
-     and (min-device-width : 320px)
-     and (max-device-width : 480px){  .mobileHide { display: none;}}
-
+      .mobileHide { display: inline;}
+      /* Smartphone Portrait and Landscape */
+      @media only screen
+      and (min-device-width : 320px)
+      and (max-device-width : 480px){  .mobileHide { display: none;}}
     </style>
 </head>
+
 <body id="top" class="scrollspy">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-</div>
 
 <!--Navigation-->
  <div class="navbar-fixed">
     <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="/" id="logo-container" class="brand-logo">
-              <div class="mobileShow">College Chatbot</div>
-              <div class="mobileHide">College Enquiry Chatbot</div>
+              <a href="/" id="logo-container" class="brand-logo">
+                <div class="mobileShow">College Chatbot</div>
+                <div class="mobileHide">College Enquiry Chatbot</div>
               </a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="signin">Login</a></li>
-                    <li><a href="register">Register</a></li>
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
-                  <li><a href="/">Home</a></li>
-                    <li><a href="signin">Login</a></li>
-                    <li><a href="register">Register</a></li>
-                </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="signin">Login</a></li>
+                <li><a href="register">Register</a></li>
+              </ul>
+              <ul id="nav-mobile" class="side-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="signin">Login</a></li>
+                <li><a href="register">Register</a></li>
+              </ul>
+              <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
         </div>
     </nav>
 </div>
-<!--Hero-->
-<!-- 
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-        <h1 class="text_h center header cd-headline letters type">
-            <span>I Love</span> 
-            <span class="cd-words-wrapper waiting">
-                <b class="is-visible">creating</b>
-                <b>designing</b>
-                <b>developing</b>
-            </span>
-        </h1>
-    </div>
-</div>
--->
-<!--Intro and service-->
-<div id="intro" class="section scrollspy">
-    <div class="container">
-        <div class="row">
-            <div  class="col s12">
-                <h3 class="center header text_h3"> User  <span class="span_h3"> Registration  </span> </h3>
-            </div>
-        </div>
-            {% if error %}
-                  <p><strong>Error:</strong> {{ error }}
-            {% endif %}
-            <form class="login-form" action="register" method="POST" name="Register">
-            {{ form.hidden_tag() }}
 
-               <div class="row margin">
-                <div class="input-field col s12">
-                  <i class="mdi-social-person-outline prefix"></i>
-                  {{ form.name(size=40,class="form-control") }}
-                  <label for="name" class="center-align">Name</label>
-                </div>
-              </div>
-              <div class="row margin">
-                <div class="input-field col s12">
-                  <i class="mdi-content-mail prefix"></i>
-                  {{ form.username(size=40,class="form-control") }}
-                  <label for="username" class="center-align">Email</label>
-                </div>
-              </div>
-              <div class="row margin">
-                <div class="input-field col s12">
-                  <i class="mdi-action-lock-outline prefix"></i>
-                  {{ form.password(size=40,class="form-control") }}
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              <div class="row margin">
-                <div class="input-field col s12">
-                  <i class="mdi-hardware-phone-android prefix"></i>
-                  {{ form.mobile(size=40,class="form-control") }}
-                  <label for="mobile">Mobile number</label>
-                </div>
-              </div>
-        
-        <!--<div class="row">          
-          <div class="input-field col s12 m12 l12  login-text">
-              <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Remember me</label>
+<!--<div id="intro" class="section scrollspy">-->
+  <div class="container">
+    <div class="row">
+      <div  class="col s12">
+          <h3 class="center header text_h3"> User  <span class="span_h3"> Registration  </span> </h3>
+      </div>
+      </div>
+      
+      {% if error %}
+        <p><strong>Error:</strong> {{ error }}
+      {% endif %}
+      
+      <form class="login-form" action="register" method="POST" name="Register">
+        {{ form.hidden_tag() }}
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+            {{ form.name(size=40,class="form-control") }}
+            <label for="name" class="center-align">Name</label>
           </div>
-        </div>  -->
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-content-mail prefix"></i>
+            {{ form.username(size=40,class="form-control") }}
+            <label for="username" class="center-align">Email</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix"></i>
+            {{ form.password(size=40,class="form-control") }}
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-hardware-phone-android prefix"></i>
+            {{ form.mobile(size=40,class="form-control") }}
+            <label for="mobile">Mobile number</label>
+          </div>
+        </div>
         <div class="row">
           <div class="input-field col s12">
             <button class="btn waves-effect waves-light col s12" type="submit">Register</button>
@@ -132,14 +110,14 @@
             <p class="margin medium-small"><a href="signin"> Login here!</a></p>
           </div>         
         </div>
-
       </form>
     </div>
   </div>
+
   <!-- ================================================
     Scripts
     ================================================ -->
-    <script src="static/min/plugin-min.js"></script>
-    <script src="static/min/custom-min.js"></script>
+  <script src="static/min/plugin-min.js"></script>
+  <script src="static/min/custom-min.js"></script>
 </body>
 </html>

@@ -37,12 +37,17 @@
         <div class="container">
             <div class="nav-wrapper">
             <a href="/" id="logo-container" class="brand-logo">
-            	<div class="mobileShow">College Chatbot</div>
+            	<div class="mobileShow"> College Chatbot</div>
             	<div class="mobileHide">College Enquiry Chatbot</div>
             	</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="signin">Login</a></li>
-                    <li><a href="register">Register</a></li>
+        			{% if log %} 
+                    	<li><a href="chat">Chat</a></li>
+                        <li><a href="signout">Sign out</a></li>                
+                    {% else %}
+                     	<li><a href="signin">Login</a></li>
+                    	<li><a href="register">Register</a></li>
+                    {% endif %}
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="signin">Login</a></li>
@@ -73,28 +78,29 @@
     <div class="container">
         <div class="row">
             <div  class="col s12">
-                <h2 class="center header text_h2">Got<span class="span_h2"> Questions?</span> </h2>
+                <h2 class="center header text_h2">Got<span class="span_h2"> Question?</span> </h2>
             </div>
 
             <div  class="col s12 m4 l4">
                 <div class="center promo promo-example">
                     <i class="mdi-image-flash-on"></i>
-                    <h5 class="promo-caption">Get answers instantly</h5>
+                    <h5 class="promo-caption">Get answers instantly <br>24x7</h5>
                     <p class="light center">No delay in getting answers anytime from anywhere.</p>
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="center promo promo-example">
                     <i class="mdi-social-group"></i>
-                    <h5 class="promo-caption">Single space for all questions</h5>
+                    <h5 class="promo-caption">Single space for all your queries</h5>
                     <p class="light center">All your questions are answered</p>
+                    
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="center promo promo-example">
                     <i class="mdi-hardware-desktop-windows"></i>
-                    <h5 class="promo-caption">Available in web and mobile</h5>
-                    <p class="light center">Accessible via web, android app, facebook, telegram and kik.</p>
+                    <h5 class="promo-caption">Available across several platforms</h5>
+                    <p class="light center">Accessible via Web, Android app, Facebook Messenger, Telegram & Kik.</p>
                 </div>
             </div>
         </div>

@@ -31,6 +31,7 @@
         });
     });
     </script>
+
     <style type="text/css">
        .mobileShow { display: none;}
        /* Smartphone Portrait and Landscape */
@@ -39,11 +40,10 @@
        and (max-device-width : 480px){ .mobileShow { display: inline;}}
 
        .mobileHide { display: inline;}
-   /* Smartphone Portrait and Landscape */
+        /* Smartphone Portrait and Landscape */
        @media only screen
        and (min-device-width : 320px)
        and (max-device-width : 480px){  .mobileHide { display: none;}}
-
     </style>
 </head>
 
@@ -53,64 +53,69 @@
     <div class="loader-section section-right"></div>
 	
 <!--Navigation-->
- <div class="navbar-fixed">
-    <nav id="nav_f" class="default_color" role="navigation">
-        <div class="container">
-            <div class="nav-wrapper">
-            <a href="/" id="logo-container" class="brand-logo">
-                <div class="mobileShow">College Chatbot</div>
-                <div class="mobileHide">College Enquiry Chatbot</div>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="chat">Chat</a></li>
-                    <li><a href="signout">Sign out</a></li>                
-                </ul>
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="chat">Chat</a></li>
-                    <li><a href="signout">Sign out</a></li>
-                </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-           </div>
-        </div>
-    </nav>
-</div>
+    <div class="navbar-fixed">
+        <nav id="nav_f" class="default_color" role="navigation">
+            <div class="container">
+                <div class="nav-wrapper">
+                <a href="/" id="logo-container" class="brand-logo">
+                    <div class="mobileShow">College Chatbot</div>
+                    <div class="mobileHide">College Enquiry Chatbot</div>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="chat">Chat</a></li>
+                        <li><a href="signout">Sign out</a></li>                
+                    </ul>
+                    <ul id="nav-mobile" class="side-nav">
+                        <li><a href="chat">Chat</a></li>
+                        <li><a href="signout">Sign out</a></li>
+                    </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+               </div>
+            </div>
+        </nav>
+    </div>
 
-<div id="intro" class="section scrollspy">
-    <div class="container">
-        <div class="row">
-            <div  class="col s12">
-                <h3 class="center header text_h3"> Chat <span class="span_h3"> Here  </span> </h3>
-            </div>
-            <div class="panel-body">
-		       	<ul class="media-list">
-		            <li class="media">
-		            <div class="media-body">
-		                <div class="media">
-		                    <div class="media-body" >
-		                    <div id="log"></div>
-		                    </div>
-		                </div>
-		            </div>
-		        </ul> 
-            </div>
-            <div class="panel-footer">
-                <form id="emit" method="POST" action='#' class="input-group" autocomplete="off">
-                        <input type="text" autocomplete="false" name="hidden" class="form-control" placeholder="Enter Message" id="emit_data">
+    <!--<div id="intro" class="section scrollspy">-->
+        <div class="container">
+            <div class="row">
+                <div  class="col s12">
+                    <h3 class="center header text_h3"> Chat <span class="span_h3"> Here  </span> </h3>
+                </div>
+                <div class="panel-body">
+    		       	<ul class="media-list">
+    		            <li class="media"></li>
+    		            <div class="media-body">
+    		                <div class="media">
+    		                    <div class="media-body">
+    		                    <div id="log"></div>
+    		                    </div>
+    		                </div>
+    		            </div>
+    		        </ul> 
+                </div>
+                <div class="panel-footer">
+                    <form id="emit" method="POST" action='#' class="input-group" autocomplete="off">
+                        <input type="text" name="hidden" class="form-control" placeholder="Enter Message" id="emit_data" autocomplete="off">
                         <span class="input-group-btn">
-                            <input button class="btn btn-info" type="submit" value="Send" ></button>
+                            <input button class="btn btn-info" type="submit" value="Send" onclick="setTimeout(clearform,500);""></button>
                             <button class="btn btn-info" type="reset" onclick="play()"><i class="fa fa-play-circle"></i></button>
                             <script type="text/javascript">
-                            function play()
+                            function clearform()
                             {
-                                var msg = new SpeechSynthesisUtterance(myVar);
-                                window.speechSynthesis.speak(msg);
+                                    document.getElementById("emit").reset();
                             }
+                       
+                                function play()
+                                {
+                                    var msg = new SpeechSynthesisUtterance(myVar);
+                                    window.speechSynthesis.speak(msg);
+                                }
                             </script>
                         </span>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
    <!-- ================================================
     Scripts
     ================================================ -->
