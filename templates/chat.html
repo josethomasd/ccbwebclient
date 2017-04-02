@@ -31,6 +31,20 @@
         });
     });
     </script>
+    <style type="text/css">
+       .mobileShow { display: none;}
+       /* Smartphone Portrait and Landscape */
+       @media only screen
+       and (min-device-width : 320px)
+       and (max-device-width : 480px){ .mobileShow { display: inline;}}
+
+       .mobileHide { display: inline;}
+   /* Smartphone Portrait and Landscape */
+       @media only screen
+       and (min-device-width : 320px)
+       and (max-device-width : 480px){  .mobileHide { display: none;}}
+
+    </style>
 </head>
 
 <body id="top" class="scrollspy">
@@ -43,7 +57,10 @@
     <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="/" id="logo-container" class="brand-logo">College Enquiry Chatbot</a>
+            <a href="/" id="logo-container" class="brand-logo">
+                <div class="mobileShow">College Chatbot</div>
+                <div class="mobileHide">College Enquiry Chatbot</div>
+                </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="chat">Chat</a></li>
                     <li><a href="signout">Sign out</a></li>                
