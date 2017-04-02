@@ -121,6 +121,13 @@ def register():
         error = 'User with the same email already exists!'
     return render_template('register.html',title='Register',form=form,error=error)
 
+@app.route("/about",methods=['GET'])
+def about():
+    login_check = 0
+    if current_user.is_authenticated:
+        login_check = 1
+    return render_template("about.html",title="About",login_check=login_check)
+
 @app.route("/chat",methods=['GET'])
 def chat():
     login_check = 0

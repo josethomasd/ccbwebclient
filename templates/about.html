@@ -7,7 +7,7 @@
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-    <title>Sign In | College Enquiry AI Chatbot</title>
+    <title>About Us | College Enquiry AI Chatbot</title>
 
     <!-- CSS  -->
     <link href="static/min/plugin-min.css" type="text/css" rel="stylesheet">
@@ -43,16 +43,30 @@
                         <div class="mobileHide">College Enquiry Chatbot</div>
                     </a>
                     <ul class="right hide-on-med-and-down">
+                        {% if log %} 
                         <li><a href="/">Home</a></li>
-                        <li><a href="signin">Login</a></li>
-                        <li><a href="register">Register</a></li>
+                        <li><a href="chat">Chat</a></li>
                         <li><a href="about">About Us</a></li>
+                        <li><a href="signout">Sign out</a></li>                
+                        {% else %}
+                            <li><a href="/">Home</a></li>
+                            <li><a href="signin">Login</a></li>
+                            <li><a href="register">Register</a></li>
+                            <li><a href="about">About Us</a></li>
+                        {% endif %}
                     </ul>
                     <ul id="nav-mobile" class="side-nav">
-                    	<li><a href="/">Home</a></li>
-                        <li><a href="signin">Login</a></li>
-                        <li><a href="register">Register</a></li>
-                        <li><a href="about">About Us</a></li>
+                        {% if log %} 
+                            <li><a href="/">Home</a></li>
+                            <li><a href="chat">Chat</a></li>
+                            <li><a href="about">About Us</a></li>
+                            <li><a href="signout">Sign out</a></li>                
+                        {% else %}
+                            <li><a href="/">Home</a></li>
+                            <li><a href="signin">Login</a></li>
+                            <li><a href="register">Register</a></li>
+                            <li><a href="about">About Us</a></li>
+                        {% endif %}
                     </ul>
                     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                 </div>
@@ -64,38 +78,15 @@
     <div class="container">
         <div class="row">
             <div  class="col s12">
-                <h3 class="center header text_h3"> User  <span class="span_h3"> Login  </span> </h3>
+                <h3 class="center header text_h3"> About  <span class="span_h3"> Us  </span> </h3>
             </div>
-                {% if error %}
-                    <p><strong>Error:</strong> {{ error }}
-                {% endif %}
-                <form class="login-form" action="signin" method="POST" name="Login">
-                    {{ form.hidden_tag() }}
-                    <div class="row margin">
-                        <div class="input-field col s12">
-                            <i class="mdi-social-person-outline prefix"></i>
-                            {{ form.username(size=40,class="form-control") }}
-                            <label for="username" class="center-align">Username</label>
-                        </div>
-                    </div>
-                    <div class="row margin">
-                        <div class="input-field col s12">
-                            <i class="mdi-action-lock-outline prefix"></i>
-                            {{ form.password(size=40,class="form-control") }}
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <button class="btn waves-effect waves-light col s12" type="submit">Login</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6 m6 l6">
-                            <p class="margin medium-small"><a href="register">Register Now!</a></p>
-                        </div>         
-                    </div>
-                </form>
+                <p>College enquiry chatbot helps to get answer about course details and various college related queries using natural language processing and pattern matching techniques.</p>
+                <p>Various supported queries are:
+                    <li>Course information( Instructor, credits, syllabus, references, type etc.)</li>
+                    <li>Time table</li>
+                    <li>College contact information</li>
+                    <li>General greetings </li>
+                    <li> Data and time etc.</li>
         </div>
     </div>
     </div>
