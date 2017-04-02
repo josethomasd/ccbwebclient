@@ -102,7 +102,9 @@
                         <input type="text" name="hidden" class="form-control" placeholder="Enter Message" id="emit_data" autocomplete="off">
                         <span class="input-group-btn">
                             <input button class="btn btn-info" type="submit" value="Send" onclick="setTimeout(clearform,500);""></button>
-                            <button class="btn btn-info" type="reset" onclick="play()"><i class="fa fa-play-circle"></i></button>
+                            <div class="mobileHide">
+                                <button class="btn btn-info" type="reset" onclick="play()"><i class="fa fa-play-circle"></i></button>
+                            </div>
                             <script type="text/javascript">
                             function clearform()
                             {

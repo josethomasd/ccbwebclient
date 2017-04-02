@@ -43,7 +43,7 @@
                         <div class="mobileHide">College Enquiry Chatbot</div>
                     </a>
                     <ul class="right hide-on-med-and-down">
-                        {% if log %} 
+                        {% if login_check %} 
                         <li><a href="/">Home</a></li>
                         <li><a href="chat">Chat</a></li>
                         <li><a href="about">About Us</a></li>
@@ -56,7 +56,7 @@
                         {% endif %}
                     </ul>
                     <ul id="nav-mobile" class="side-nav">
-                        {% if log %} 
+                        {% if login_check %} 
                             <li><a href="/">Home</a></li>
                             <li><a href="chat">Chat</a></li>
                             <li><a href="about">About Us</a></li>
