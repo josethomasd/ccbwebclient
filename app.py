@@ -143,9 +143,10 @@ def test_message(message):
     print message['data']
 
     message_text = message['data']
-    server_url = "http://ccbserver.herokuapp.com/api/msg/"
+    server_url = "http://ccbserver.herokuapp.com/website/api/msg/"
 
-    final_url = server_url+message_text
+    final_url = server_url+message_text+"sessionid/"+current_user.id+"/un/"+current_user.username
+    #final_url = server_url+message_text
     resp = requests.get(final_url)
     msg = json.loads(resp.text)
     bot_response = msg['response'][0]['output']
