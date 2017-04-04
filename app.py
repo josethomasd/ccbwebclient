@@ -132,6 +132,7 @@ def about():
 def chat():
     login_check = 0
     if current_user.is_authenticated:
+        print current_user.username
         login_check = 1
     if login_check == 0:
         return redirect(url_for('signin'))
@@ -145,7 +146,7 @@ def test_message(message):
     message_text = message['data']
     server_url = "http://ccbserver.herokuapp.com/website/api/msg/"
 
-    final_url = server_url+message_text+"sessionid/"+current_user.id+"/un/"+current_user.username
+    final_url = server_url+message_text+"/sessionid/"+current_user.id+"/un/"+current_user.username
     #final_url = server_url+message_text
     resp = requests.get(final_url)
     msg = json.loads(resp.text)
