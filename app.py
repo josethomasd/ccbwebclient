@@ -110,7 +110,7 @@ def register():
     error = None
     if form.validate_on_submit():
         email = form.username.data
-        username = form.username.data
+        username = form.name.data
         password = form.password.data
         mobile = form.mobile.data
         if not db.session.query(User).filter(User.email == email).count():
